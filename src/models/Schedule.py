@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from src.models.logger import log_event
 
-
 class Schedule:
 
     def _log(self, message):
@@ -59,3 +58,5 @@ class Schedule:
         }
         self._log(f"to_dict called -> {result}")
         return result
+
+    #Display

@@ -54,17 +54,17 @@ class Teacher:
 
     def set_subject(self, subject):
         self.subjects.append(subject)
-        self._log(f"set_subject called -> subject={subject}, all_subjects={self.subjects}")
+        self._log(f"set_subject called -> subject={subject.name}, all_subjects={self.subjects}")
 
     def set_available_slots(self, a_slote):
         self.available_slots.append(a_slote)
-        self._log(f"set_available_slots called -> slot={a_slote}, all_slots={self.available_slots}")
+        self._log(f"set_available_slots called -> slot={a_slote.day} {a_slote.start_time}-{a_slote.end_time}, all_slots={self.available_slots}")
 
     # Methods
     def remove_subject(self, subject):
         self.subjects.remove(subject)
-        self._log(f"remove_subject called -> subject={subject}, remaining_subjects={self.subjects}")
+        self._log(f"remove_subject called -> subject={subject.name}, remaining_subjects={self.subjects}")
 
     def remove_available_slot(self, slot):
         self.available_slots.remove(slot)
-        self._log(f"remove_available_slot called -> slot={slot}, remaining_slots={self.available_slots}")
+        self._log(f"remove_available_slot called -> slot={slot.day} {slot.start_time}-{slot.end_time}, remaining_slots={self.available_slots}")

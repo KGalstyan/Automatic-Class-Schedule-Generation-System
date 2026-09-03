@@ -2,6 +2,8 @@
 import os
 import sys
 
+from numpy import delete
+
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
@@ -14,7 +16,6 @@ from src.models.Teacher import Teacher
 from src.models.Classroom import Classroom
 from src.models.TimeSlot import TimeSlot
 
-
 def main():
     # Create a schedule for week 1
     my_schedule = Schedule(week=1)
@@ -22,35 +23,16 @@ def main():
     # Create some student groups
     group1 = StudentGroup(id=1, name="Group 1", size=30)
     group2 = StudentGroup(id=2, name="Group 2", size=25)
-
-    # Create some subjects
-    math = Subject(id=1, name="Math")
-    physics = Subject(id=2, name="Physics")
-
-    # Create some teachers
-    teacher1 = Teacher(id=1, name="John", surname="Doe")
-    teacher2 = Teacher(id=2, name="Jane", surname="Smith")
-
-    # Assign subjects to teachers
-    teacher1.set_subject(math)
-    teacher2.set_subject(physics)
-
-    # Create some classrooms
-    room101 = Classroom(id=1, capacity=40, room_name="Room 101")
-    room102 = Classroom(id=2, capacity=30, room_name="Room 102")
-
-    # Create some time slots
-    slot1 = TimeSlot(day="Monday", start_time="09:00", end_time="10:00")
-    slot2 = TimeSlot(day="Monday", start_time="10:00", end_time="11:00")
-
-    # Add busy slots to classrooms
-    room101.set_busy_slots(slot1)
-    room102.set_busy_slots(slot2)
+    group1.set_name("Advanced Group 1")
+    group2.set_name("Advanced Group 2")
+    group1.set_size(35)
+    group2.set_size(28)
+    
 
     print("Application started successfully.")
     print(f"Schedule week: {my_schedule.get_week()}")
     print(f"Teachers: {teacher1.get_full_name()}, {teacher2.get_full_name()}")
-
+    return 0
 
 if __name__ == "__main__":
     main()
